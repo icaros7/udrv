@@ -12,7 +12,7 @@ int main() {
      Init Var
      E: Signal Energy
      SNR: Signal to Noise Ratio
-     temp: Uniform random varable of noise over (0,1)
+     temp: Uniform random variable of noise over (0,1)
      sigma: Standard deviation of noise
      r0, r1: Correlator output
      error: Error counter
