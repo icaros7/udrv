@@ -5,7 +5,6 @@
 #include <math.h>
 
 #define ITER 10000000
-#define SNRdB 10
 
 int main() {
     double awgn();
@@ -35,8 +34,8 @@ int main() {
     fprintf(fp, "# Iterator = %d\n", ITER);
     fclose(fp);
 
-    //for (SNR = 1; SNR < 16; SNR++) {
-    SNR = 2;
+    for (int SNRdB = 1; SNRdB < 16; SNRdB++) {
+        SNR = pow(10.0, SNRdB/ 10.0);
         sigma = E / sqrt(2.0 * SNR); // Standard deviation of noise
         error = 0;
 
@@ -72,7 +71,7 @@ int main() {
         fp = fopen("./data.txt", "w");
         fprintf(fp, "%.1f %.9lf\n", SNR, poe);
         fclose(fp);
-    //}
+    }
     return 0;
 }
 
