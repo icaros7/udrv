@@ -25,9 +25,9 @@ int main() {
     time_t t;
     srand((unsigned)time(&t));
 
-    E = 1.0; // Energy is normalized to unity (1)
+    E = 5.0; // Energy is normalized to unity (1)
 
-    if ((fp = fopen("./data.txt", "w")) == NULL) {
+    if ((fp = fopen("./data_E5.txt", "w")) == NULL) {
         printf("File %s can't be treated as \"%s\"\n", "./data.txt", "w");
         exit(0);
     }
@@ -67,9 +67,9 @@ int main() {
         // Probability of Error
         poe = error / ITER;
 
-        printf("SNR = %.1f, BER = %.9lf\n", SNR, poe);
-        fp = fopen("./data.txt", "w");
-        fprintf(fp, "%.1f %.9lf\n", SNR, poe);
+        printf("SNRdB = %d, BER = %.10lf\n", SNRdB, poe);
+        fp = fopen("./data_E5.txt", "w");
+        fprintf(fp, "%d %.10lf\n", SNRdB, poe);
         fclose(fp);
     }
     return 0;
